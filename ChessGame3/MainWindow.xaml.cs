@@ -395,8 +395,6 @@ namespace ChessGame
             editedplayer2.LastPlayedColor = p2.LastPlayedColor;
             cgem.SaveChanges();
 
-            MessageBox.Show(currentGame.Id.ToString());
-
             currentTurn = p1.PlayerName;
             currentColor = p1.LastPlayedColor;
             lbP1CurrentTurn.Visibility = Visibility.Visible;

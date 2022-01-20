@@ -14,7 +14,6 @@ namespace ChessBoard
         public bool Occupied { get; set; }
         public bool LegalMove { get; set; }
         //DangerPosition checks positions where this piece is in danger
-        public bool DangerPosition { get; set; }
         public PieceType OccupiedBy { get; set; }
 
         public Cell (int f, int r)

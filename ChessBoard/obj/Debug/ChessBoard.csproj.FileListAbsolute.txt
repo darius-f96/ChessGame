@@ -1,11 +1,11 @@
-C:\Users\dariu\source\repos\ChessBoard\obj\Debug\ChessBoard.csproj.AssemblyReference.cache
-C:\Users\dariu\source\repos\ChessBoard\obj\Debug\ChessBoard.csproj.CoreCompileInputs.cache
+C:\Users\dariu\source\repos\ChessBoard\bin\Debug\ChessBoard.dll.config
 C:\Users\dariu\source\repos\ChessBoard\bin\Debug\ChessBoard.dll
 C:\Users\dariu\source\repos\ChessBoard\bin\Debug\ChessBoard.pdb
-C:\Users\dariu\source\repos\ChessBoard\obj\Debug\ChessBoard.dll
-C:\Users\dariu\source\repos\ChessBoard\obj\Debug\ChessBoard.pdb
-C:\Users\dariu\source\repos\ChessBoard\bin\Debug\ChessBoard.dll.config
 C:\Users\dariu\source\repos\ChessBoard\bin\Debug\EntityFramework.dll
 C:\Users\dariu\source\repos\ChessBoard\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\dariu\source\repos\ChessBoard\bin\Debug\EntityFramework.xml
 C:\Users\dariu\source\repos\ChessBoard\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\dariu\source\repos\ChessBoard\obj\Debug\ChessBoard.csproj.AssemblyReference.cache
+C:\Users\dariu\source\repos\ChessBoard\obj\Debug\ChessBoard.csproj.CoreCompileInputs.cache
+C:\Users\dariu\source\repos\ChessBoard\obj\Debug\ChessBoard.dll
+C:\Users\dariu\source\repos\ChessBoard\obj\Debug\ChessBoard.pdb
