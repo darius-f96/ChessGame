@@ -66,6 +66,9 @@ namespace ChessGame
                     boardGrid.Children.Add(boardCell[i, j]);
                 }
             }
+
+            //initial piece placement
+            gameBoard.PlaceInitialPieces();
         }
 
         private void selectCell(object sender, RoutedEventArgs e)
@@ -76,7 +79,7 @@ namespace ChessGame
 
             Cell currentCell = gameBoard.Grid[currentrow, currentcolumn];
 
-            gameBoard.GetNextLegalMoves("Knight", currentCell);
+            gameBoard.GetNextLegalMoves(currentCell.OccupiedBy.ToString(), currentCell);
 
             for (int i = 0; i < gameBoard.Size; i++)
             {

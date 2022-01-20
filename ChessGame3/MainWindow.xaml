@@ -1,0 +1,80 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChessGame"
+        xmlns:ChessBoard="clr-namespace:ChessBoard;assembly=ChessBoard" x:Name="mainWindow" x:Class="ChessGame.MainWindow"
+        mc:Ignorable="d"
+        Title="Chess Game" Height="809" Width="990" Loaded="Window_Loaded">
+    <Window.Resources>
+        <Style x:Key="legalmovebtn" TargetType="{x:Type Button}">
+            <Setter Property="Background"  Value="#7FFFFFCC" />
+
+        </Style>
+        <Style x:Key="clearbtn" TargetType="{x:Type Button}">
+            <Setter Property="Background"  Value="#FFDDDDDD" />
+        </Style>
+        <CollectionViewSource x:Key="playerViewSource"></CollectionViewSource>
+        <CollectionViewSource x:Key="playerMoveViewSource" d:DesignSource="{d:DesignInstance {x:Type ChessBoard:PlayerMove}, CreateList=True}"/>
+        <CollectionViewSource x:Key="playerTakeViewSource" d:DesignSource="{d:DesignInstance {x:Type ChessBoard:PlayerTake}, CreateList=True}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource playerMoveViewSource}">
+        <ComboBox x:Name="cmbPlayer2" HorizontalAlignment="Left" Margin="618,35,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.638,0.659"/>
+
+        <Button x:Name="bntStart" Content="Start" HorizontalAlignment="Left" Margin="296,35,0,0" VerticalAlignment="Top" Width="75" Click="bntStart_Click"/>
+        <Button x:Name="btnResign" Content="Resign" HorizontalAlignment="Left" Margin="376,35,0,0" VerticalAlignment="Top" Width="74" Click="btnResign_Click" IsEnabled="False" RenderTransformOrigin="0.84,0.35"/>
+        <Button x:Name="btnNewP" Content="New player" HorizontalAlignment="Left" Margin="296,10,0,0" VerticalAlignment="Top" Width="75"/>
+        <ListView x:Name="listViewPlayerMoves" HorizontalAlignment="Left" Height="348" Margin="754,62,0,0" VerticalAlignment="Top" Width="206" 
+            ItemsSource="{Binding}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <TextBlock Text="{Binding PlayerName}" FontWeight="Bold" />
+                        <TextBlock Text="&#10;" />
+                        <TextBlock Text="{Binding PieceName}" FontWeight="Bold" />
+                        <TextBlock Text=" from " />
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}[{0},{1}]">
+                                    <Binding Path="FromFile"/>
+                                    <Binding Path="FromRank"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                        <TextBlock Text=" to " />
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}[{0},{1}]">
+                                    <Binding Path="ToFile"/>
+                                    <Binding Path="ToRank"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </WrapPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ComboBox x:Name="cmbPlayer1" HorizontalAlignment="Left" Margin="38,30,0,0" VerticalAlignment="Top" Width="120"/>
+        <Grid x:Name="boardGrid" Height="700" Width="700" Margin="32,62,238,7"/>
+        <Label x:Name="lbP2CurrentTurn" Content="Current Turn" HorizontalAlignment="Left" Margin="618,4,0,0" VerticalAlignment="Top" Width="120" Background="#FFEA1E1E" FontWeight="Bold" Visibility="Hidden"/>
+        <Label x:Name="lbP1CurrentTurn" Content="Current Turn" HorizontalAlignment="Left" Margin="38,4,0,0" VerticalAlignment="Top" Width="120" Background="#FFEA1E1E" FontWeight="Bold" Visibility="Hidden"/>
+        <ListView x:Name="listViewPlayerTakes" HorizontalAlignment="Left" Height="348" Margin="754,420,0,0" VerticalAlignment="Top" Width="206" 
+            ItemsSource="{Binding}" DataContext="{StaticResource playerTakeViewSource}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <TextBlock Text="{Binding takerpn}" FontWeight="Bold" />
+                        <TextBlock Text=" takes " />
+                        <TextBlock Text="{Binding takenpn}" FontWeight="Bold" />
+                        <TextBlock Text="'s " />
+                        <TextBlock Text="{Binding PieceNameTaken}" FontWeight="Bold" />
+                        <TextBlock Text="with " />
+                        <TextBlock Text="{Binding PieceNameTaker}" FontWeight="Bold" />
+                    </WrapPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </Grid>
+</Window>
