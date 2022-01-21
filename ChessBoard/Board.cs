@@ -445,12 +445,12 @@ namespace ChessBoard
                     if (currentCell.OccupiedBy.PieceColor == "white")
                     {
                         //2 cells down to middle
-                        if (currentCell.File + 2 <= Size / 2 && !(Grid[currentCell.File + 2, currentCell.Rank].OccupiedBy.PieceColor == currentCell.OccupiedBy.PieceColor))
+                        if (currentCell.File + 2 <= Size / 2 && !(Grid[currentCell.File + 2, currentCell.Rank].Occupied || Grid[currentCell.File + 1, currentCell.Rank].Occupied))
                         {
                             Grid[currentCell.File + 2, currentCell.Rank].LegalMove = true;
                         }
                         //1 cells down
-                        if (currentCell.File + 1 < Size && !(Grid[currentCell.File + 1, currentCell.Rank].OccupiedBy.PieceColor == currentCell.OccupiedBy.PieceColor))
+                        if (currentCell.File + 1 < Size && !Grid[currentCell.File + 1, currentCell.Rank].Occupied)
                         {
                             Grid[currentCell.File + 1, currentCell.Rank].LegalMove = true;
                         }
@@ -468,12 +468,12 @@ namespace ChessBoard
                     else
                     {
                         //2 cells up to middle
-                        if (currentCell.File - 2 >= Size / 2 && !(Grid[currentCell.File - 2, currentCell.Rank].OccupiedBy.PieceColor == currentCell.OccupiedBy.PieceColor))
+                        if (currentCell.File - 2 >= Size / 2 && !(Grid[currentCell.File - 1, currentCell.Rank].Occupied || Grid[currentCell.File - 2, currentCell.Rank].Occupied))
                         {
                             Grid[currentCell.File - 2, currentCell.Rank].LegalMove = true;
                         }
                         //1 cells down
-                        if (currentCell.File - 1 >= 0 && !(Grid[currentCell.File - 1, currentCell.Rank].OccupiedBy.PieceColor == currentCell.OccupiedBy.PieceColor))
+                        if (currentCell.File - 1 >= 0 && !Grid[currentCell.File - 1, currentCell.Rank].Occupied)
                         {
                             Grid[currentCell.File - 1, currentCell.Rank].LegalMove = true;
                         }
