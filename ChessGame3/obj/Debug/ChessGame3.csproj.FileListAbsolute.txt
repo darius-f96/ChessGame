@@ -18,6 +18,5 @@ C:\Users\dariu\source\repos\ChessGame3\obj\Debug\ChessGame3.g.resources
 C:\Users\dariu\source\repos\ChessGame3\obj\Debug\ChessGame3.Properties.Resources.resources
 C:\Users\dariu\source\repos\ChessGame3\obj\Debug\ChessGame3.csproj.GenerateResource.cache
 C:\Users\dariu\source\repos\ChessGame3\obj\Debug\ChessGame3.csproj.CoreCompileInputs.cache
-C:\Users\dariu\source\repos\ChessGame3\obj\Debug\ChessGame3.csproj.CopyComplete
 C:\Users\dariu\source\repos\ChessGame3\obj\Debug\ChessGame3.exe
 C:\Users\dariu\source\repos\ChessGame3\obj\Debug\ChessGame3.pdb

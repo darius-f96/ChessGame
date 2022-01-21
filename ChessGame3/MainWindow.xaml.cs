@@ -379,6 +379,17 @@ namespace ChessGame
             currentGame = new Game();
             p1 = (Player)cmbPlayer1.SelectedItem;
             p2 = (Player)cmbPlayer2.SelectedItem;
+            if (p1 == null || p2 == null)
+            {
+                MessageBox.Show("Please select both players!");
+                return;
+            }
+
+            if (p1.Id == p2.Id)
+            {
+                MessageBox.Show("You need an opponent to start the game!");
+                return;
+            }
 
             currentGame.Player1Id = p1.Id;
             currentGame.Player2Id = p2.Id;
