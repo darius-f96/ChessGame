@@ -49,8 +49,17 @@ namespace ChessBoard
                     //diagonal down and right
                     r = 1;
                     f = 1;
-                    while (currentCell.File + f < Size & currentCell.Rank + r < Size && !Grid[currentCell.File + f, currentCell.Rank + r].Occupied && !(Grid[currentCell.File + f, currentCell.Rank + r].OccupiedBy.PieceColor == currentCell.OccupiedBy.PieceColor))
+                    while (currentCell.File + f < Size & currentCell.Rank + r < Size)
                     {
+                        if (Grid[currentCell.File + f, currentCell.Rank + r].Occupied && Grid[currentCell.File + f, currentCell.Rank + r].OccupiedBy.PieceColor != currentCell.OccupiedBy.PieceColor)
+                        {
+                            Grid[currentCell.File + f, currentCell.Rank + r].LegalMove = true;
+                            break;
+                        }
+                        else if (Grid[currentCell.File + f, currentCell.Rank + r].Occupied)
+                        {
+                            break;
+                        }
                         Grid[currentCell.File + f, currentCell.Rank + r].LegalMove = true;
                         r++;
                         f++;
@@ -59,8 +68,17 @@ namespace ChessBoard
                     //diagonal down and left
                     r = 1;
                     f = 1;
-                    while (currentCell.File + f < Size & currentCell.Rank - r >= 0 && !Grid[currentCell.File + f, currentCell.Rank - r].Occupied && !(Grid[currentCell.File + f, currentCell.Rank - r].OccupiedBy.PieceColor == currentCell.OccupiedBy.PieceColor))
+                    while (currentCell.File + f < Size & currentCell.Rank - r >= 0)
                     {
+                        if (Grid[currentCell.File + f, currentCell.Rank - r].Occupied && Grid[currentCell.File + f, currentCell.Rank - r].OccupiedBy.PieceColor != currentCell.OccupiedBy.PieceColor)
+                        {
+                            Grid[currentCell.File + f, currentCell.Rank - r].LegalMove = true;
+                            break;
+                        }
+                        else if (Grid[currentCell.File + f, currentCell.Rank - r].Occupied)
+                        {
+                            break;
+                        }
                         Grid[currentCell.File + f, currentCell.Rank - r].LegalMove = true;
                         f++;
                         r++;
@@ -69,8 +87,17 @@ namespace ChessBoard
                     // diagonal up and left
                     r = 1;
                     f = 1;
-                    while (currentCell.File - f >= 0 & currentCell.Rank - r >= 0 && !Grid[currentCell.File - f, currentCell.Rank - r].Occupied && !(Grid[currentCell.File - f, currentCell.Rank - r].OccupiedBy.PieceColor == currentCell.OccupiedBy.PieceColor))
+                    while (currentCell.File - f >= 0 & currentCell.Rank - r >= 0)
                     {
+                        if (Grid[currentCell.File - f, currentCell.Rank - r].Occupied && Grid[currentCell.File - f, currentCell.Rank - r].OccupiedBy.PieceColor != currentCell.OccupiedBy.PieceColor)
+                        {
+                            Grid[currentCell.File - f, currentCell.Rank - r].LegalMove = true;
+                            break;
+                        }
+                        else if (Grid[currentCell.File - f, currentCell.Rank - r].Occupied)
+                        {
+                            break;
+                        }
                         Grid[currentCell.File - f, currentCell.Rank - r].LegalMove = true;
                         f++;
                         r++;
@@ -79,8 +106,17 @@ namespace ChessBoard
                     // diagonal up and right
                     r = 1;
                     f = 1;
-                    while (currentCell.File - f >= 0 & currentCell.Rank + r < Size && !Grid[currentCell.File - f, currentCell.Rank + r].Occupied && !(Grid[currentCell.File - f, currentCell.Rank + r].OccupiedBy.PieceColor == currentCell.OccupiedBy.PieceColor))
+                    while (currentCell.File - f >= 0 & currentCell.Rank + r < Size)
                     {
+                        if (Grid[currentCell.File - f, currentCell.Rank + r].Occupied && Grid[currentCell.File - f, currentCell.Rank + r].OccupiedBy.PieceColor != currentCell.OccupiedBy.PieceColor)
+                        {
+                            Grid[currentCell.File - f, currentCell.Rank + r].LegalMove = true;
+                            break;
+                        }
+                        else if (Grid[currentCell.File - f, currentCell.Rank + r].Occupied)
+                        {
+                            break;
+                        }
                         Grid[currentCell.File - f, currentCell.Rank + r].LegalMove = true;
                         f++;
                         r++;
@@ -88,29 +124,65 @@ namespace ChessBoard
 
                     //horizontal move right
                     r = 1;
-                    while (currentCell.Rank + r < Size && !Grid[currentCell.File, currentCell.Rank + r].Occupied && !(Grid[currentCell.File, currentCell.Rank + r].OccupiedBy.PieceColor == currentCell.OccupiedBy.PieceColor))
+                    while (currentCell.Rank + r < Size)
                     {
+                        if (Grid[currentCell.File, currentCell.Rank + r].Occupied && Grid[currentCell.File, currentCell.Rank + r].OccupiedBy.PieceColor != currentCell.OccupiedBy.PieceColor)
+                        {
+                            Grid[currentCell.File, currentCell.Rank + r].LegalMove = true;
+                            break;
+                        }
+                        else if (Grid[currentCell.File, currentCell.Rank + r].Occupied)
+                        {
+                            break;
+                        }
                         Grid[currentCell.File, currentCell.Rank + r].LegalMove = true;
                         r++;
                     }
                     //horizontal move left
                     r = 1;
-                    while (currentCell.Rank - r >= 0 && !Grid[currentCell.File, currentCell.Rank - r].Occupied && !(Grid[currentCell.File, currentCell.Rank - r].OccupiedBy.PieceColor == currentCell.OccupiedBy.PieceColor))
+                    while (currentCell.Rank - r >= 0)
                     {
+                        if (Grid[currentCell.File, currentCell.Rank - r].Occupied && Grid[currentCell.File, currentCell.Rank - r].OccupiedBy.PieceColor != currentCell.OccupiedBy.PieceColor)
+                        {
+                            Grid[currentCell.File, currentCell.Rank - r].LegalMove = true;
+                            break;
+                        }
+                        else if (Grid[currentCell.File, currentCell.Rank - r].Occupied)
+                        {
+                            break;
+                        }
                         Grid[currentCell.File, currentCell.Rank - r].LegalMove = true;
                         r++;
                     }
                     //vertical move down
                     f = 1;
-                    while (currentCell.File + f < Size && !Grid[currentCell.File + f, currentCell.Rank].Occupied && !(Grid[currentCell.File + f, currentCell.Rank].OccupiedBy.PieceColor == currentCell.OccupiedBy.PieceColor))
+                    while (currentCell.File + f < Size)
                     {
+                        if (Grid[currentCell.File + f, currentCell.Rank].Occupied && Grid[currentCell.File + f, currentCell.Rank].OccupiedBy.PieceColor != currentCell.OccupiedBy.PieceColor)
+                        {
+                            Grid[currentCell.File + f, currentCell.Rank].LegalMove = true;
+                            break;
+                        }
+                        else if(Grid[currentCell.File + f, currentCell.Rank].Occupied)
+                        {
+                            break;
+                        }
                         Grid[currentCell.File + f, currentCell.Rank].LegalMove = true;
                         f++;
                     }
                     //vertical move up
                     f = 1;
-                    while (currentCell.File - f >= 0 && !Grid[currentCell.File - f, currentCell.Rank].Occupied && !(Grid[currentCell.File - f, currentCell.Rank].OccupiedBy.PieceColor == currentCell.OccupiedBy.PieceColor))
+                    while (currentCell.File - f >= 0)
                     {
+                        if (Grid[currentCell.File - f, currentCell.Rank].Occupied && Grid[currentCell.File - f, currentCell.Rank].OccupiedBy.PieceColor != currentCell.OccupiedBy.PieceColor)
+                        {
+                            Grid[currentCell.File - f, currentCell.Rank].LegalMove = true;
+                            break;
+                        }
+                        else if (Grid[currentCell.File - f, currentCell.Rank].Occupied)
+                        {
+                            break;
+                        }
                         Grid[currentCell.File - f, currentCell.Rank].LegalMove = true;
                         f++;
                     }
@@ -190,8 +262,17 @@ namespace ChessBoard
                     //diagonal down and right
                     r = 1;
                     f = 1;
-                    while (currentCell.File + f < Size & currentCell.Rank + r < Size && !Grid[currentCell.File + f, currentCell.Rank + r].Occupied && !(Grid[currentCell.File + f, currentCell.Rank + r].OccupiedBy.PieceColor == currentCell.OccupiedBy.PieceColor))
+                    while (currentCell.File + f < Size & currentCell.Rank + r < Size)
                     {
+                        if (Grid[currentCell.File + f, currentCell.Rank + r].Occupied && Grid[currentCell.File + f, currentCell.Rank + r].OccupiedBy.PieceColor != currentCell.OccupiedBy.PieceColor)
+                        {
+                            Grid[currentCell.File + f, currentCell.Rank + r].LegalMove = true;
+                            break;
+                        }
+                        else if (Grid[currentCell.File + f, currentCell.Rank + r].Occupied)
+                        {
+                            break;
+                        }
                         Grid[currentCell.File + f, currentCell.Rank + r].LegalMove = true;
                         r++;
                         f++;
@@ -200,8 +281,17 @@ namespace ChessBoard
                     //diagonal down and left
                     r = 1;
                     f = 1;
-                    while (currentCell.File + f < Size & currentCell.Rank - r >= 0 && !Grid[currentCell.File + f, currentCell.Rank - r].Occupied && !(Grid[currentCell.File + f, currentCell.Rank - r].OccupiedBy.PieceColor == currentCell.OccupiedBy.PieceColor))
+                    while (currentCell.File + f < Size & currentCell.Rank - r >= 0)
                     {
+                        if (Grid[currentCell.File + f, currentCell.Rank - r].Occupied && Grid[currentCell.File + f, currentCell.Rank - r].OccupiedBy.PieceColor != currentCell.OccupiedBy.PieceColor)
+                        {
+                            Grid[currentCell.File + f, currentCell.Rank - r].LegalMove = true;
+                            break;
+                        }
+                        else if (Grid[currentCell.File + f, currentCell.Rank - r].Occupied)
+                        {
+                            break;
+                        }
                         Grid[currentCell.File + f, currentCell.Rank - r].LegalMove = true;
                         f++;
                         r++;
@@ -210,8 +300,17 @@ namespace ChessBoard
                     // diagonal up and left
                     r = 1;
                     f = 1;
-                    while (currentCell.File - f >= 0 & currentCell.Rank - r >= 0 && !Grid[currentCell.File - f, currentCell.Rank - r].Occupied && !(Grid[currentCell.File - f, currentCell.Rank - r].OccupiedBy.PieceColor == currentCell.OccupiedBy.PieceColor))
+                    while (currentCell.File - f >= 0 & currentCell.Rank - r >= 0)
                     {
+                        if (Grid[currentCell.File - f, currentCell.Rank - r].Occupied && Grid[currentCell.File - f, currentCell.Rank - r].OccupiedBy.PieceColor != currentCell.OccupiedBy.PieceColor)
+                        {
+                            Grid[currentCell.File - f, currentCell.Rank - r].LegalMove = true;
+                            break;
+                        }
+                        else if (Grid[currentCell.File - f, currentCell.Rank - r].Occupied)
+                        {
+                            break;
+                        }
                         Grid[currentCell.File - f, currentCell.Rank - r].LegalMove = true;
                         f++;
                         r++;
@@ -220,13 +319,21 @@ namespace ChessBoard
                     // diagonal up and right
                     r = 1;
                     f = 1;
-                    while (currentCell.File - f >= 0 & currentCell.Rank + r < Size && !Grid[currentCell.File - f, currentCell.Rank + r].Occupied && !(Grid[currentCell.File - f, currentCell.Rank + r].OccupiedBy.PieceColor == currentCell.OccupiedBy.PieceColor))
+                    while (currentCell.File - f >= 0 & currentCell.Rank + r < Size)
                     {
+                        if (Grid[currentCell.File - f, currentCell.Rank + r].Occupied && Grid[currentCell.File - f, currentCell.Rank + r].OccupiedBy.PieceColor != currentCell.OccupiedBy.PieceColor)
+                        {
+                            Grid[currentCell.File - f, currentCell.Rank + r].LegalMove = true;
+                            break;
+                        }
+                        else if (Grid[currentCell.File - f, currentCell.Rank + r].Occupied)
+                        {
+                            break;
+                        }
                         Grid[currentCell.File - f, currentCell.Rank + r].LegalMove = true;
                         f++;
                         r++;
                     }
-
                     break;
 
                 //Knight moves L shaped forms, same for take
@@ -269,29 +376,65 @@ namespace ChessBoard
                 case "Rook":
                     //horizontal move right
                     r = 1;
-                    while (currentCell.Rank + r < Size && !Grid[currentCell.File, currentCell.Rank + r].Occupied && !(Grid[currentCell.File, currentCell.Rank + r].OccupiedBy.PieceColor == currentCell.OccupiedBy.PieceColor))
+                    while (currentCell.Rank + r < Size)
                     {
+                        if (Grid[currentCell.File, currentCell.Rank + r].Occupied && Grid[currentCell.File, currentCell.Rank + r].OccupiedBy.PieceColor != currentCell.OccupiedBy.PieceColor)
+                        {
+                            Grid[currentCell.File, currentCell.Rank + r].LegalMove = true;
+                            break;
+                        }
+                        else if (Grid[currentCell.File, currentCell.Rank + r].Occupied)
+                        {
+                            break;
+                        }
                         Grid[currentCell.File, currentCell.Rank + r].LegalMove = true;
                         r++;
                     }
                     //horizontal move left
                     r = 1;
-                    while (currentCell.Rank - r >= 0 && !Grid[currentCell.File, currentCell.Rank - r].Occupied && !(Grid[currentCell.File, currentCell.Rank - r].OccupiedBy.PieceColor == currentCell.OccupiedBy.PieceColor))
+                    while (currentCell.Rank - r >= 0)
                     {
+                        if (Grid[currentCell.File, currentCell.Rank - r].Occupied && Grid[currentCell.File, currentCell.Rank - r].OccupiedBy.PieceColor != currentCell.OccupiedBy.PieceColor)
+                        {
+                            Grid[currentCell.File, currentCell.Rank - r].LegalMove = true;
+                            break;
+                        }
+                        else if (Grid[currentCell.File, currentCell.Rank - r].Occupied)
+                        {
+                            break;
+                        }
                         Grid[currentCell.File, currentCell.Rank - r].LegalMove = true;
                         r++;
                     }
                     //vertical move down
                     f = 1;
-                    while (currentCell.File + f < Size && !Grid[currentCell.File + f, currentCell.Rank].Occupied && !(Grid[currentCell.File + f, currentCell.Rank].OccupiedBy.PieceColor == currentCell.OccupiedBy.PieceColor))
+                    while (currentCell.File + f < Size)
                     {
+                        if (Grid[currentCell.File + f, currentCell.Rank].Occupied && Grid[currentCell.File + f, currentCell.Rank].OccupiedBy.PieceColor != currentCell.OccupiedBy.PieceColor)
+                        {
+                            Grid[currentCell.File + f, currentCell.Rank].LegalMove = true;
+                            break;
+                        }
+                        else if (Grid[currentCell.File + f, currentCell.Rank].Occupied)
+                        {
+                            break;
+                        }
                         Grid[currentCell.File + f, currentCell.Rank].LegalMove = true;
                         f++;
                     }
                     //vertical move up
                     f = 1;
-                    while (currentCell.File - f >= 0 && !Grid[currentCell.File - f, currentCell.Rank].Occupied && !(Grid[currentCell.File - f, currentCell.Rank].OccupiedBy.PieceColor == currentCell.OccupiedBy.PieceColor))
+                    while (currentCell.File - f >= 0)
                     {
+                        if (Grid[currentCell.File - f, currentCell.Rank].Occupied && Grid[currentCell.File - f, currentCell.Rank].OccupiedBy.PieceColor != currentCell.OccupiedBy.PieceColor)
+                        {
+                            Grid[currentCell.File - f, currentCell.Rank].LegalMove = true;
+                            break;
+                        }
+                        else if (Grid[currentCell.File - f, currentCell.Rank].Occupied)
+                        {
+                            break;
+                        }
                         Grid[currentCell.File - f, currentCell.Rank].LegalMove = true;
                         f++;
                     }
