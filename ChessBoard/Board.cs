@@ -625,7 +625,7 @@ namespace ChessBoard
             //diagonal down and left
             r = 1;
             f = 1;
-            while (currentCell.File + f < Size & currentCell.Rank - r >= 0)
+            while (currentCell.File + f < Size & currentCell.Rank + r < Size)
             {
                 if ((Grid[currentCell.File + f, currentCell.Rank - r].OccupiedBy.Piece == PieceOptions.Queen || Grid[currentCell.File + f, currentCell.Rank - r].OccupiedBy.Piece == PieceOptions.Bishop) && (Grid[currentCell.File + f, currentCell.Rank - r].OccupiedBy.PieceColor != col))
                 {
